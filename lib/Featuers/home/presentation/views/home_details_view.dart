@@ -6,6 +6,10 @@ class HomeDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeDetailsViewBody();
+    return const Scaffold(
+      body: SafeArea(
+          child: HomeDetailsViewBody()
+      ),
+    );
   }
 }
