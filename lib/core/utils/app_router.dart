@@ -1,12 +1,14 @@
 import 'package:bookly/Featuers/home/presentation/views/home_details_view.dart';
 import 'package:bookly/Featuers/home/presentation/views/home_view.dart';
+import 'package:bookly/Featuers/search/presentation/views/search_view.dart';
 import 'package:bookly/Featuers/splash/presentation/views/splash_view.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter{
   static const kHomeView = '/homeView';
   static const kHomeDetailsView = '/homeDetailsView';
+  static const kSearchView = '/searchView';
+
   static final GoRouter router = GoRouter(
     routes:[
       GoRoute(
@@ -20,6 +22,10 @@ abstract class AppRouter{
       GoRoute(
           path: kHomeDetailsView,
           builder: (context, state) =>  const HomeDetailsView()
+      ),
+      GoRoute(
+          path: kSearchView,
+          builder: (context, state) =>  const SearchView()
       ),
     ],
   );
