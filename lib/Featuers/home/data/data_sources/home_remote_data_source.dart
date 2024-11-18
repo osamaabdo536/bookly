@@ -1,6 +1,8 @@
 import 'package:bookly/Featuers/home/data/model/Book_model.dart';
 import 'package:bookly/Featuers/home/domain/entities/book_entity.dart';
+import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/api_service.dart';
+import '../../../../core/functions/save_books.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks();
@@ -17,6 +19,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         endPoint: 'volumes?Filtering=free-ebooks&q=programming');
 
     List<BookEntity> books = getBooksList(response);
+
+    saveBooksData(books ,kFeaturedBox);
+
     return books;
   }
 
