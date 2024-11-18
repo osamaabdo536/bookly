@@ -31,6 +31,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         endPoint: 'volumes?Filtering=free-ebooks&sorting=newest&q=programming');
 
     List<BookEntity> books = getBooksList(response);
+
+    saveBooksData(books, kNewestBox);
+
     return books;
   }
 }
@@ -40,5 +43,6 @@ List<BookEntity> getBooksList(Map<String, dynamic> response) {
   for (var bookMap in response['items']) {
     books.add(BookModel.fromJson(bookMap));
   }
+
   return books;
 }
