@@ -9,6 +9,7 @@ import 'package:bookly/Featuers/home/presentation/manger/newest_book_cubit/newes
 import 'package:bookly/core/utils/api_service.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/functions/setup_service_locator.dart';
+import 'package:bookly/core/utils/simple_bloc_observer.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,10 +21,10 @@ import 'constants.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-
+  setupServiceLocator();
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewestBox);
-
+  Bloc.observer = SimpleBLockObserver();
   runApp(const BooklyApp());
 }
 
