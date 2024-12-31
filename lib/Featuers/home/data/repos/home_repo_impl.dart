@@ -6,7 +6,7 @@ import 'package:bookly/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-class HomeRepoImpl extends HomeRepo {
+class HomeRepoImpl implements HomeRepo {
   HomeRemoteDataSource homeRemoteDataSource;
   HomeLocalDataSource homeLocalDataSource ;
 
